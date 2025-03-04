@@ -1,0 +1,21 @@
+server:
+  port: 16684
+logging:
+  config: classpath:logback-spring.xml
+spring:
+  application:
+    name: ResourceGathering
+  influx:
+    url: http://192.168.1.110:8086
+    user: paas
+    password: paas
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.1.103:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.int}
+
